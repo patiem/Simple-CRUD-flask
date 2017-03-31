@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Socks Crud</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" >
+    <link href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}" rel="stylesheet" >
+
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Rafal's socks management system</h1>
+            <a href="{{ url_for('add') }}" class="btn btn-lg btn-primary">Add new socks</a>
+        </div>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Nr</th>
+                <th>Sock name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Actions</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Piggies</td>
+                <td>Pink with pigs</td>
+                <td>12$</td>
+                <td>
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-primary">Examine</button>
+                      <button type="button" class="btn btn-sm btn-warning">Update</button>
+                      <button type="button" class="btn btn-sm btn-danger">Delete</button>
+                    </div>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
