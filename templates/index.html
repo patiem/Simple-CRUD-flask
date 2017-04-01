@@ -25,19 +25,29 @@
               </tr>
             </thead>
             <tbody>
+            {%  set i = 0 %}
+            {% for sock in socks %}
               <tr>
-                <td>1</td>
-                <td>Piggies</td>
-                <td>Pink with pigs</td>
-                <td>12$</td>
+                <td>{{ i }}</td>
+                <td>{{ sock.name }}</td>
+                {% if sock.description|length > 30 %}
+                    <td>{{ sock.description|truncate(30) }}...</td>
+                {% else %}
+                    <td>{{ sock.description}}</td>
+                {% endif %}
+                <td>{{ sock.price }}$</td>
                 <td>
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-primary">Examine</button>
-                      <button type="button" class="btn btn-sm btn-warning">Update</button>
-                      <button type="button" class="btn btn-sm btn-danger">Delete</button>
+                      <a href="{{ url_for('show', idx=sock.id)}}" role="button" class="btn btn-sm btn-primary" >Examine</a>
+                      <a href="{{ url_for('update', idx=sock.id)}}" role="button" class="btn btn-sm btn-warning" >Update</a>
+                      <a href="{{ url_for('delete', idx=sock.id)}}" role="button" class="btn btn-sm btn-danger" >Delete</a>
+{#                      <button type="button" class="btn btn-sm btn-warning" value="{{ sock.id }}">Update</button>#}
+{#                      <button formmethod="get" formaction="{{ url_for('delete', idx=sock.id) }}" type="button" class="btn btn-sm btn-danger" value="{{ sock.id }}">Delete</button>#}
                     </div>
                 </td>
               </tr>
+            {%  set i = i + 1 %}
+            {% endfor %}
             </tbody>
         </table>
     </div>

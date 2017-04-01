@@ -8,4 +8,4 @@ SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 # Define the database - we are working with
 # SQLite for this example
-SQLALCHEMY_DATABASE_URI = "sqlite:///" + BASE_DIR + '/db.db'
+SQLALCHEMY_DATABASE_URI = "sqlite:///" + BASE_DIR + '/ab.db'
