@@ -11,23 +11,51 @@
 
 <body>
     <div class="container">
+        {% if sock %}
+        <form method="post" action="{{ url_for('update', idx=sock.id) }}" class="form-signin">
+        {% else %}
         <form method="post" action="/save" class="form-signin">
+        {% endif %}
                 <h2 class="form-signin-heading">Add new pair of socks</h2>
                 <div class="form-group">
                     <label for="sname" class="sr-only">Name</label>
-                    <input type="text" id="sname" name="sname" class="form-control" placeholder="Sock Name" required autofocus>
+                    <input type="text" id="sname" name="sname" class="form-control"
+                           {% if sock %}
+                           value="{{ sock.name }}"
+                           {% else %}
+                           placeholder="Sock Name"
+                           {% endif %}
+                           required autofocus>
                 </div>
                 <div class="form-group">
                     <label for="comment" class="sr-only">Description</label>
-                    <textarea row="5" id="comment" name="comment" class="form-control" placeholder="Description" required></textarea>
+                    <textarea row="5" id="comment" name="comment" class="form-control"
+                           {% if sock %}
+                           required>{{ sock.description }}</textarea>
+                           {% else %}
+                           placeholder="Description" required></textarea>
+                           {% endif %}
+
                 </div>
                 <div class="form-group">
                     <label for="price" class="sr-only">Price</label>
-                    <input type="text" id="price" name="price" class="form-control" placeholder="0.00" required autofocus>
+                    <input type="text" id="price" name="price" class="form-control"
+                           {% if sock %}
+                           value="{{ sock.price }}"
+                           {% else %}
+                           placeholder="0.00"
+                           {% endif %}
+                           required>
                 </div>
                 <div class="form-group">
                     <label for="image" class="sr-only">Image URL</label>
-                    <input type="text" id="image" name="image" class="form-control" placeholder="Image URL" required autofocus>
+                    <input type="text" id="image" name="image" class="form-control"
+                           {% if sock %}
+                           value="{{ sock.image }}"
+                           {% else %}
+                           placeholder="Image URL"
+                           {% endif %}
+                           required>
                 </div>
 
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Sign</button>

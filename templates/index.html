@@ -31,7 +31,7 @@
                 <td>{{ i }}</td>
                 <td>{{ sock.name }}</td>
                 {% if sock.description|length > 30 %}
-                    <td>{{ sock.description|truncate(30) }}...</td>
+                    <td>{{ sock.description|truncate(30) }}</td>
                 {% else %}
                     <td>{{ sock.description}}</td>
                 {% endif %}

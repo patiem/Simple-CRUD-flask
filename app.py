@@ -40,7 +40,7 @@ def index():
 
 @app.route('/add')
 def add():
-    return render_template('add.html')
+    return render_template('add.html', sock=None)
 
 
 @app.route('/save', methods=['POST'])
@@ -65,12 +65,23 @@ def delete(idx):
 
 @app.route('/show/<idx>')
 def show(idx):
-    return idx\
-
-
-@app.route('/update/<idx>')
-def update(idx):
     return idx
+
+
+@app.route('/update/<idx>', methods=['POST', 'GET'])
+def update(idx):
+    sock = Socks.query.filter_by(id=idx).first()
+    if request.method == 'GET':
+        return render_template('add.html', sock=sock)
+    else:
+        sock.name = request.form['sname']
+        sock.description = request.form['comment']
+        sock.price = request.form['price']
+        sock.image = request.form['image']
+        db.session.commit()
+        print(sock.name)
+        return redirect(url_for('index'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
