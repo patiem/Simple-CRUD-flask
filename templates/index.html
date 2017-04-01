@@ -1,14 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Socks Crud</title>
-    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" >
-    <link href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}" rel="stylesheet" >
-
-</head>
-<body>
-    <div class="container">
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Socks Crud</title>#}
+{#    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" >#}
+{#    <link href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}" rel="stylesheet" >#}
+{##}
+{#</head>#}
+{#<body>#}
+{#    <div class="container">#}
+{% extends 'head.html' %}
+        {% block content %}
         <div class="jumbotron">
             <h1>Rafal's socks management system</h1>
             <a href="{{ url_for('add') }}" class="btn btn-lg btn-primary">Add new socks</a>
@@ -50,6 +52,7 @@
             {% endfor %}
             </tbody>
         </table>
-    </div>
-</body>
-</html>
+        {% endblock %}
+{#    </div>#}
+{#</body>#}
+{#</html>#}

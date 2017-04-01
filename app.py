@@ -79,7 +79,6 @@ def update(idx):
         sock.price = request.form['price']
         sock.image = request.form['image']
         db.session.commit()
-        print(sock.name)
         return redirect(url_for('index'))
 
 
