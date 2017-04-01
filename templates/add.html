@@ -12,6 +12,9 @@
 {#<body>#}
 {#    <div class="container">#}
 {% extends 'head.html' %}
+{%  block head %}
+<link href="{{ url_for('static', filename='css/sign.css') }}" rel="stylesheet" >
+{% endblock %}
         {% block content %}
         {% if sock %}
         <form method="post" action="{{ url_for('update', idx=sock.id) }}" class="form-signin">
@@ -45,7 +48,7 @@
                            {% if sock %}
                            value="{{ sock.price }}"
                            {% else %}
-                           placeholder="0.00"
+                           placeholder="Price: 0.00"
                            {% endif %}
                            required>
                 </div>

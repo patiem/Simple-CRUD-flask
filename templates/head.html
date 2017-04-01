@@ -5,8 +5,8 @@
     <title>Add</title>
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" >
     <link href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}" rel="stylesheet" >
-    <link href="{{ url_for('static', filename='css/sign.css') }}" rel="stylesheet" >
-
+{#    <link href="{{ url_for('static', filename='css/sign.css') }}" rel="stylesheet" >#}
+    {% block head %}{% endblock %}
 </head>
 
 <body>

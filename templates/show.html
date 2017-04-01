@@ -1,6 +1,26 @@
 {% extends 'head.html' %}
 {% block content %}
-<div class="jumbotron">
-    <h1>Rafal's socks management system</h1>
+<div class="jumbotron"ifconf>
     <a href="{{ url_for('index') }}" class="btn btn-lg btn-primary">Back to sock's list</a>
 </div>
+    <div class="row">
+         <div class="col-md-4 col-sm-offset-2">
+            <img src="{{ sock.image }}" class="img-responsive img-rounded" alt="{{ sock.name }}" width="100%">
+         </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Name</div>
+                <div class="panel-body">{{ sock.name }}</div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">Description</div>
+                <div class="panel-body">{{ sock.description }}</div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">Price</div>
+                <div class="panel-body">{{ sock.price }}</div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

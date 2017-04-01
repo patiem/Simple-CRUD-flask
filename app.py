@@ -65,7 +65,8 @@ def delete(idx):
 
 @app.route('/show/<idx>')
 def show(idx):
-    return idx
+    sock = Socks.query.filter_by(id=idx).first()
+    return render_template('show.html', sock=sock)
 
 
 @app.route('/update/<idx>', methods=['POST', 'GET'])
@@ -83,5 +84,5 @@ def update(idx):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
 
